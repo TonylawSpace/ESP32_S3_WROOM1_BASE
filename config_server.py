@@ -1,5 +1,6 @@
 import uasyncio as asyncio
 import network
+import ubinascii
 import usocket as socket
 import ujson as json
 import machine
@@ -11,6 +12,10 @@ DEBUG = True  # 调试时设为 True，发布时设为 False
 
 class ConfigServer:
     def __init__(self, port=80):
+        
+        # 获取设备唯一ID 提供雲端登記
+        self.device_id = ubinascii.hexlify(machine.unique_id()).decode()
+        
         self.port = port
         self.server_socket = None
         self.ap_ip = "192.168.4.1"
@@ -210,7 +215,7 @@ class ConfigServer:
         """处理根路径请求"""
         # 返回简单的HTML表单
         response = "HTTP/1.1 200 OK\r\n"
-        response += "Content-Type: text/html\r\n"
+        response += "Content-Type: text/html; charset=utf-8\r\n"
         response += "Connection: close\r\n\r\n"
         response += self.get_html_form()
         try:
@@ -226,7 +231,7 @@ class ConfigServer:
                     <head>
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>ESP32 WiFi Config</title>
+                        <title>WiFi Config</title>
                         <style>
                             body { font-family: Arial, sans-serif; margin: 20px; }
                             .container { max-width: 400px; margin: 0 auto; }
@@ -237,6 +242,7 @@ class ConfigServer:
                             .message { margin-top: 10px; padding: 10px; display: none; }
                             .success { background: #dff0d8; color: #3c763d; }
                             .error { background: #f2dede; color: #a94442; }
+                            .device_id_cls{ font-size:14px;color:#3423eb; margin-top: 10px; padding: 10px; display: block; }
                         </style>
                     </head>
                     <body>
@@ -250,10 +256,23 @@ class ConfigServer:
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="text" id="password" name="password" required>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="url_scheme">Url Scheme</label>
+                                    <select class="form-group" name="url_scheme" id="scheme">
+                                      <option value="http">HTTP</option>
+                                      <option value="https">HTTPS</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="url_host">Url Host</label>
+                                    <input type="text" id="url_host" name="password" required>
                                 </div>
                                 <button type="submit">Save & Reboot</button>
                             </form>
                             <div class="message" id="message"></div>
+                            <div class="device_id_cls" id="device_id">{self.device_id}</div>
+                            
                         </div> 
                     </body>
                     </html>"""
@@ -280,10 +299,11 @@ class ConfigServer:
                     </head>
                     <body>
                         <div class="container">
-                            <h2>WiFi Configuration Reponse</h2>
+                            <h2>WiFi Configuration</h2>
                               
                             <div class="return_msg" id="return_msg">
-                                Configuration Successfully! <br> <br>Device will reboot. <br><br>Please reconnect to your WiFi.</div>
+                                Configuration Successfully! <br> <br>Device will reboot. <br><br>
+                                <span stye="font-size:18px;">Please reconnect to your WiFi.</span></div>
                         </div> 
                     </body>
                     </html>"""
