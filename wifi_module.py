@@ -55,8 +55,7 @@ class WiFiCreator:
                 self.wlan.connect(self.wifi_ssid, self.wifi_password)
             except Exception as e:
                 print(f"\nfunc::connect_wifi exception: Connection error: {e}\n")
-                await asyncio.sleep(2) 
-                print(f"\nConnecting to try: {self.wifi_ssid}\n")
+                await asyncio.sleep(2)  
                 continue
             
             print(f"\nConnecting WiFi Fail: {self.wifi_ssid} , Next......\n")
