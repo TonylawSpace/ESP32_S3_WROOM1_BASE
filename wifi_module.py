@@ -19,6 +19,8 @@ class WiFiCreator:
                 config = json.load(f) 
                 self.wifi_ssid = config['ssid']
                 self.wifi_password = config['password']
+                
+                print(f"\nWiFiCreator Stucture Func: open wifi_config.json {self.wifi_ssid} {self.wifi_password}\n")
         except:
             print("\nNo saved configuration found(wifi_config.json), using default values\n")
              
@@ -53,7 +55,8 @@ class WiFiCreator:
                 self.wlan.connect(self.wifi_ssid, self.wifi_password)
             except Exception as e:
                 print(f"\nfunc::connect_wifi exception: Connection error: {e}\n")
-                await asyncio.sleep(5)
+                await asyncio.sleep(2) 
+                print(f"\nConnecting to try: {self.wifi_ssid}\n")
                 continue
             
             print(f"\nConnecting WiFi Fail: {self.wifi_ssid} , Next......\n")

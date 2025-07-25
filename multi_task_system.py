@@ -20,7 +20,7 @@ from lcd_1602_time_module import DateTimeModule    # 导入DateTimeModule模块
 DEBUG = True  # 调试时设为 True，发布时设为 False
 
 # 创建全局锁
-lock = asyncio.Lock()
+multi_task_lock = asyncio.Lock()
 counter = 0
 
 class MultiTaskSystem:
@@ -43,30 +43,33 @@ class MultiTaskSystem:
         # self.resource_timer = 0 XXXXXX
         self.tasks = []
         
-        # Led WifiIndicator
-        self.wifiIndicator = None  # 新增属性，用于存储Led WifiIndicator实例
+        # Led WifiIndicator 初始化WIFI闪灯指示器
+        self.wifiIndicator = WifiIndicator(wifi_current_status=False)
           
         # 拍卡设备串口初始化 Card scanning device serial port initialization
-        self.uart = UART(1, baudrate=9600, rx=Pin(18), tx=Pin(17))
+        uart1 = UART(1, baudrate=9600, bits=8, parity=None, stop=1, rx=Pin(18), tx=Pin(17))
+        self.uart = uart1
          
         # 创建LCD对象，指定I2C地址和显示大小（例如0x27是常见的I2C地址） 
         self.lcd = LCD1602.LCD1602(16, 2) 
-        # 创建LCD锁
-        self.lcd_lock = asyncio.Lock()
         
         # 拍卡设备实例 Card tapping device instance 
-        self.uartM4255NfcModule = UartM4255NfcModule(self.uart) 
+        self.uartM4255NfcModule = UartM4255NfcModule(self.uart, self.lcd) 
         
         # wifi lcd singal
         self.wifiSignalModule = WifiSignalModule()
         # Time LCD
-        self.dateTimeModule = DateTimeModule(self.lcd, self.lcd_lock)
+        self.dateTimeModule = DateTimeModule(self.lcd)
          
     async def wifi_manager_info(self):
         """管理WiFi连接和状态监控"""
+        
+        print(f"\nfunc::wifi_manager_info [Manage WiFi connections and status monitoring]\n")
+        
         # 初始连接
         try:
             self.wlan = await self.wifiCreator.connect_wifi()
+            print(f"\nfself.wlan = [{self.wlan}]\n")
             self.current_wifi_status = self.wlan.isconnected() if self.wlan else False
         except Exception as e:
             print(f"Initial WiFi connection failed: {e}")
@@ -145,7 +148,7 @@ class MultiTaskSystem:
             self.current_ap_status = False
             self.config_server.stop()
             
-    # wifi 指示燈
+    # wifi 指示燈 弃用 Depriate
     async def led_indicator(self):
         """LED状态指示器"""
         self.wifiIndicator = WifiIndicator(self.current_wifi_status)
@@ -183,9 +186,10 @@ class MultiTaskSystem:
         self.tasks = [
             asyncio.create_task(self.wifi_manager_info()),
             # asyncio.create_task(self.sensor_reader()),
-            asyncio.create_task(self.led_indicator()), 
             asyncio.create_task(self.uartM4255NfcModule.uart_card_listen_and_return()), 
-            asyncio.create_task(self.dateTimeModule.display_time()), 
+            asyncio.create_task(self.dateTimeModule.display_time()),
+            asyncio.create_task(self.wifiSignalModule.display_wifi_signal()),
+            asyncio.create_task(self.wifiIndicator.blink()), 
             asyncio.create_task(self.resource_monitor()),
             asyncio.create_task(self.Counter())
             ]
@@ -214,11 +218,11 @@ class MultiTaskSystem:
         global counter
         while True:
             # 获取锁
-            async with lock:
+            async with multi_task_lock:
                 # 关键代码区域
                 counter += 1
                 print(f"Counter: {counter}")
-            await asyncio.sleep(3)  # 接下來的 3秒不使用CPU,释放CPU，允许其他协程运行
+            await asyncio.sleep(60)  # 接下來的 3秒不使用CPU,释放CPU，允许其他协程运行
         
 """
 TEST
