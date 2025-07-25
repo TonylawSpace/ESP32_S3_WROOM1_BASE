@@ -184,8 +184,18 @@ DEMO [ACS DEVICE（Access Control System Device).MP4]
 
 
 
-## 壓線
+## 接線與壓線
 
-### XH2.54端子壓線
+### 1. XH2.54端子壓線
 
 https://www.bilibili.com/video/BV1fGRmYrEZJ/?spm_id_from=333.337.search-card.all.click&vd_source=a07361f638d3efaf8f076955f5fcb1c6
+
+
+
+### 2. 各種端子名稱
+
+![image-20250726024757349](./README_IMGs/ReadMe/image-20250726024757349.png)
+
+### 3. GPIO 擴展板
+
+![image-20250726032539759](./README_IMGs/ReadMe/image-20250726032539759.png)
