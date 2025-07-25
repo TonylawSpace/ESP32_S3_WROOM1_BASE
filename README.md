@@ -160,6 +160,12 @@ ESP32-S3 支援多個 UART（通用非同步收發器）接口，可與各種設
 | UART1**（Now Use This）** | GPIO 17 | GPIO 18 | 可以分配給其他GPIO |
 | UART2 | — | — | 指派您選擇的任何引腳 |
 
+### UART 4芯接線
+
+**NFC拍卡 M4255 使用 XH2.54mm空中对接 公母插头端子4芯**
+
+![image-20250726023115671](./README_IMGs/ReadMe/image-20250726023115671.png)
+
 
 
 ## NFC拍卡業務
@@ -175,3 +181,11 @@ def uart_card_listen_and_return(self):
 ```
 
 DEMO [ACS DEVICE（Access Control System Device).MP4]
+
+
+
+## 壓線
+
+### XH2.54端子壓線
+
+https://www.bilibili.com/video/BV1fGRmYrEZJ/?spm_id_from=333.337.search-card.all.click&vd_source=a07361f638d3efaf8f076955f5fcb1c6
