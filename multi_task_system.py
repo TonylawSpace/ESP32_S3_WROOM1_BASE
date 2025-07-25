@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import uasyncio as asyncio
 import network
-# -*- coding: utf-8 -*-
 from machine import UART, Pin, I2C
 import time
 import gc

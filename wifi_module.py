@@ -1,3 +1,5 @@
+# wifi_module.py
+# -*- coding: utf-8 -*-
 from machine import Pin, SPI
 import time
 import network

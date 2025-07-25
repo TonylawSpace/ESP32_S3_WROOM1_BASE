@@ -1,3 +1,5 @@
+# config_server.py
+# -*- coding: utf-8 -*-
 import uasyncio as asyncio
 import network
 import ubinascii
@@ -114,7 +116,7 @@ class ConfigServer:
             client.close()
         except OSError as e:
             if e.args[0] != 110:  # 忽略ETIMEDOUT错误
-                print(f"Connection error: {e}")
+                print(f"func::handle_connections Connection error: {e}")
         except Exception as e:
             print(f"Error handling connection: {e}")
     

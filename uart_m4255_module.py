@@ -1,3 +1,4 @@
+# uart_m4255_module.py
 # -*- coding: utf-8 -*-
 import uasyncio as asyncio
 from machine import UART, Pin
@@ -8,12 +9,12 @@ import LCD1602
 print("拍卡器监听模组已启动...\nThe card reader monitoring module has been activated...\n")
 print("请将卡片靠近读卡器\nPut the card close to the reader\n")
 
-lcd_lock = asyncio.Lock()
+uart_lcd_lock = asyncio.Lock()
 
 class UartM4255NfcModule:
     def __init__(self, uart,lcd):
         
-        print(f"UartM4255NfcModule initialized with arguments: {uart}")
+        print(f"\nUartM4255NfcModule initialized with arguments: {uart}\n")
         
         if uart is not None:
             self.uart = uart
@@ -50,13 +51,13 @@ class UartM4255NfcModule:
         
         # 3. 检查数据长度是否足够
         if len(raw_data) < end_pos:
-            print(f"Error: insufficient data length (needed at least {end_pos} bytes, actual {len(raw_data)} bytes)")
+            print(f"\nError: insufficient data length (needed at least {end_pos} bytes, actual {len(raw_data)} bytes)\n")
             return None
         
         try:
             # 显示原始HEX数据
             hex_str = binascii.hexlify(raw_data).decode("utf-8").upper()
-            print(f"Raw HEX Data: {hex_str}")
+            print(f"\nRaw HEX Data: {hex_str}\n")
             
             # 4. 提取卡号字节段
             card_bytes = raw_data[card_number_start:end_pos]
@@ -71,9 +72,9 @@ class UartM4255NfcModule:
             return None
     
     # LCD 顯示拍卡號碼
-    def display_card_number(self, card_number):
+    async def display_card_number(self, card_number):
         try:
-            with self.lcd_lock:
+            async with uart_lcd_lock:
                 print("\n-------------------------------------------")
                 print(f"func::display_card_number: {card_number}")
                 print("-------------------------------------------\n")
@@ -93,7 +94,7 @@ class UartM4255NfcModule:
                 # 直接创建任务（MicroPython的uasyncio不需要检查循环状态）
                 # asyncio.create_task(delayed_clear()) # 無效
                 # 改為
-                time.sleep(3)   # 3 秒後 清空卡號保護隱私
+                time.sleep(2)   # 3 秒後 清空卡號保護隱私
                 self.lcd.setCursor(0, 1)
                 self.lcd.printout(" " * 16)  # 清空第二行
                 
@@ -101,7 +102,7 @@ class UartM4255NfcModule:
         except KeyboardInterrupt:
             self.lcd.clear()
         except Exception as e:
-            print(f"Error in display_card_number: {e}")
+            print(f"\nError in display_card_number: {e}\n")
                        
             
     def uart_card_listen_and_return(self):
@@ -118,14 +119,14 @@ class UartM4255NfcModule:
                 # Check if data is available
                 if self.uart.any():
                     bytes_available = self.uart.any()
-                    print(f"\n{bytes_available} Bytes Available")
+                    print(f"\n{bytes_available} Bytes Available\n")
                     
                     # 读取所有可用数据
                     # Read all available data
                     data = self.uart.read()
                     
                     if data:
-                        print("原始数据/Raw data:", data)
+                        print("\n原始数据/Raw data:", data)
                         
                         # 解析卡号 - 使用self.uart_to_card_number
                         # Parse the card number - using self.uart_to_card_number
@@ -136,12 +137,12 @@ class UartM4255NfcModule:
                             # Anti-duplicate read mechanism
                             current_time = time.ticks_ms()
                             if card_id != last_card_id or time.ticks_diff(current_time, last_detect_time) > 2000:
-                                print(f"检测到卡号/Card number detected: {card_id}")
+                                print(f"\n检测到卡号/Card number detected: {card_id}\n")
                                 last_card_id = card_id
                                 last_detect_time = current_time
                                 
                                 # 显示card number
-                                self.display_card_number(card_id)
+                                await self.display_card_number(card_id)
                                 
                                 # 在此添加业务逻辑（如存储卡号、控制继电器等）
                                 # Add business logic here (such as storage card number, control relay, etc.)
@@ -161,8 +162,8 @@ class UartM4255NfcModule:
                 time.sleep_ms(300)
         
         except KeyboardInterrupt:
-            print("[异常] 函数::uart_card_listen_and_return 已终止!!!")
-            print("[Exception] Function::uart_card_listen_and_return has terminated!!!")
+            print("\n[异常] 函数::uart_card_listen_and_return 已终止!!!")
+            print("[Exception] Function::uart_card_listen_and_return has terminated!!!\n")
             return None
 
 # 启动系统

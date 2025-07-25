@@ -1,3 +1,5 @@
+# lcd_1602_wifi_signal_module.py
+# -*- coding: utf-8 -*-
 import uasyncio as asyncio
 import LCD1602
 import time
@@ -11,7 +13,8 @@ class WifiSignalModule:
          
         # 创建LCD对象，指定I2C地址和显示大小（例如0x27是常见的I2C地址）
         self.lcd = LCD1602.LCD1602(16, 2) 
-        
+        self.lcd_lock = asyncio.Lock()
+
     async def update_wifi_current_status(self, status: bool):
         """更新WIFI状态"""
         self.wifi_current_status = status
@@ -23,7 +26,7 @@ class WifiSignalModule:
                 async with self.lcd_lock:
                     
                     # 设置光标位置到第2行第16列(注意：LCD通常从0开始计数)
-                    self.lcd.setCursor(1, 38)  # 修正：使用self.lcd
+                    self.lcd.setCursor(16, 1)  # 修正：使用self.lcd
                     # 显示wifi信号图标
                     if self.wifi_current_status:
                         self.lcd.printout("*")  # 修正：使用self.lcd
@@ -32,7 +35,7 @@ class WifiSignalModule:
                         
                     await asyncio.sleep(2)  # 异步等待
                     
-                    self.lcd.setCursor(1, 38)
+                    self.lcd.setCursor(16, 1)
                     # self.lcd.autoscroll()
                     self.lcd.printout(" ")  # 清空此格
                      
