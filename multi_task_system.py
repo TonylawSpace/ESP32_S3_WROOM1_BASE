@@ -56,7 +56,8 @@ class MultiTaskSystem:
         self.uartM4255NfcModule = UartM4255NfcModule(self.uart, self.lcd) 
         
         # wifi lcd singal
-        self.wifiSignalModule = WifiSignalModule()
+        self.wifiSignalModule = WifiSignalModule(self.lcd)
+        
         # Time LCD
         self.dateTimeModule = DateTimeModule(self.lcd)
          

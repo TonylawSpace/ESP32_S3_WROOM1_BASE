@@ -1,0 +1,4 @@
+棄用的放這裡：
+
+lcd_1602_wifi_signal_module.py
+nfc.py
