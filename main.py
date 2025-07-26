@@ -18,3 +18,6 @@ DEBUG = True  # 调试时设为 True，发布时设为 False
 if __name__ == "__main__":
     system = MultiTaskSystem()
     system.run()
+    
+    
+    

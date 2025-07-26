@@ -190,12 +190,12 @@ DEMO [ACS DEVICE（Access Control System Device).MP4]
 
 https://www.bilibili.com/video/BV1fGRmYrEZJ/?spm_id_from=333.337.search-card.all.click&vd_source=a07361f638d3efaf8f076955f5fcb1c6
 
-
+![image-20250726033511474](./README_IMGs/ReadMe/image-20250726033511474.png)
 
 ### 2. 各種端子名稱
 
 ![image-20250726024757349](./README_IMGs/ReadMe/image-20250726024757349.png)
 
-### 3. GPIO 擴展板
+### 3. ESP32-S3 GPIO 擴展板
 
 ![image-20250726032539759](./README_IMGs/ReadMe/image-20250726032539759.png)

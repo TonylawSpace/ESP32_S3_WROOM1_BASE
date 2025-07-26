@@ -129,11 +129,25 @@ class WiFiCreator:
 """   
 # start the wifi module test system
 if __name__ == "__main__":
-    # create a instance
-    wiFiCreator = WiFiCreator() 
-    
-    async def test_connection():
-        # 连接WiFi 
-        wlan = await wiFiCreator.connect_wifi()
-    
-    asyncio.run(test_connection())
+#     # create a instance
+#     wiFiCreator = WiFiCreator() 
+#     
+#     async def test_connection():
+#         # 连接WiFi 
+#         wlan = await wiFiCreator.connect_wifi()
+#     
+#     asyncio.run(test_connection())
+#     
+#     
+    async def main():
+        wifi = WiFiCreator()
+        wlan = await wifi.connect_wifi()
+        
+        if wifi.ap_mode:
+            print("进入配置模式，请连接AP进行配置")
+            # 这里可以添加Web服务器或其它配置接口
+        else:
+            print("WiFi连接成功，开始主程序")
+
+    # 启动异步事件循环
+    asyncio.run(main())    
