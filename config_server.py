@@ -7,8 +7,9 @@ import machine
 import gc
 import time
 
-# 在文件开头定义 DEBUG 常量 根據環境設置參數的值的大小
-DEBUG = True  # 调试时设为 True，发布时设为 False
+#常量與配置文件相關
+from const_and_config import DEBUG, ssid, password, url_scheme, url_host, tapping_card_led_pin, winfi_led_pin
+ 
 
 class ConfigServer:
     def __init__(self, port=80):
@@ -266,7 +267,7 @@ class ConfigServer:
                                 </div>
                                 <div class="form-group">
                                     <label for="url_host">Url Host Ip</label>
-                                    <input type="text" id="url_host" name="url_host" required>
+                                    <input type="text" id="url_host" name="url_host" value="192.168.0.1" title="The cloud validate function will be not enable as default value(192.168.0.1)" required>
                                 </div>
                                 <button type="submit">Save & Reboot</button>
                             </form>

@@ -62,6 +62,17 @@ LCD螢幕：提示WIFI STATUS and AP STATUS
 
 **立創開發板**：同一ESP32-S3晶片的另一個版本底板參考： https://wiki.lckfb.com/zh-hans/szpi-esp32s3/beginner/introduction.html
 
+
+
+## 默认配置
+
+```
+wifi_config.json 預設配置內容
+{"ssid": "WiFi001", "password": "abc12345", "url_scheme": "http", "url_host": "192.168.0.9"}
+```
+
+
+
 ## AP熱點配置
 
 ```
@@ -77,6 +88,22 @@ self.ap.ifconfig(('192.168.4.1', '255.255.255.0', '192.168.4.1', '192.168.4.1'))
 然後開啟網頁設定 http://192.168.4.1
 
 **你有300秒的時間連接AP和設置，300秒後重啟WIFI連接嘗試後，由於硬件資源不足，無法連接AP。**
+
+頁面無法打開：1、注意是不是超時  2、WIFI處於重連
+
+**請求正常**
+
+Handling root request
+Connection from ('192.168.4.2', 54730)
+request_str GET / HTTP/1.1
+Host: 192.168.4.1
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh-HK;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6 
 
 
 
@@ -145,6 +172,15 @@ lcd.printout("Hello,World!")#寫入字符
 ```
 
 
+
+## WIFI LED 信號燈
+
+WIFI 功能指示燈：DEBUG狀態 10秒，生產環境 30秒
+
+WIFI信號燈
+功能與用法說明：
+ESP32-S2 LCD 使用引腳 PIN1#（GP2）
+正常：每30秒閃一秒
 
 ## NFC拍卡 M4255
 

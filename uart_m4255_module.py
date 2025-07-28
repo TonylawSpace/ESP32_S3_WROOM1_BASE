@@ -7,6 +7,8 @@ import binascii
 import LCD1602
  
 uart_lcd_lock = asyncio.Lock()
+tapping_card_led_pin = 38 # 拍卡指示燈 RGB_LED GPIO038
+tapping_card_led_lock = asyncio.Lock() # 拍卡指示燈線程鎖
 
 class UartM4255NfcModule:
     def __init__(self, uart,lcd):
@@ -24,7 +26,11 @@ class UartM4255NfcModule:
             self.lcd = lcd
         else:
             self.lcd = LCD1602.LCD1602(16, 2)
-             
+            
+        # 拍卡指示灯
+        self.tapping_card_led = Pin(tapping_card_led_pin, Pin.OUT)
+        self.tapping_card_led.off()  # 初始状态为关闭  
+        
     def uart_to_card_number(self, raw_data, card_number_start=7, card_number_length=4, byte_order='big'):
         """
         从UART原始字节数据提取卡号（十进制）
@@ -67,6 +73,13 @@ class UartM4255NfcModule:
             print(f"\nCard number retrieval failed:\n")
             print(f"Card number retrieval failed: {str(e)}")
             return None
+        
+    def GetUnixTime():
+        """返回目前Unix時間，單位為毫秒"""
+        # 获取秒数（浮点数）
+        seconds = time.time()
+        # 转换为毫秒并取整
+        return int(seconds * 1000)
     
     # LCD 顯示拍卡號碼
     async def display_card_number(self, card_number):
@@ -141,6 +154,14 @@ class UartM4255NfcModule:
                                 print(f"Add business logic here (such as storage card number, control relay, etc.): {card_id}")
                                 print("-----------------------------------------------------------------------------------------------------")
                                 print("\n")
+                                
+                                # 拍卡指示燈業務
+                                async with tapping_card_led_lock:
+                                    self.tapping_card_led.on()
+                                    print(f"Tapping Card Led Pin{tapping_card_led_pin} On")
+                                    await asyncio.sleep(1)
+                                    self.tapping_card_led.off()
+                                    print(f"Tapping Card Led Pin{tapping_card_led_pin} Off")
                         
                         # 短暂延时防止重复读取
                         await asyncio.sleep(0.5)  

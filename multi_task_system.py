@@ -13,7 +13,6 @@ from wifi_module import WiFiCreator
 from wifi_led_module import WifiIndicator  # 导入WIFI 指示燈模块
 from config_server import ConfigServer  # 导入AP熱點模块
 from uart_m4255_module import UartM4255NfcModule # 导入UART拍卡M4255模块
-#from lcd_1602_wifi_signal_module import WifiSignalModule  # 导入WifiSignalModule for lcd signal模块
 from lcd_1602_time_module import DateTimeModule    # 导入DateTimeModule模块
 
 # 在文件开头定义 DEBUG 常量 根據環境設置參數的值的大小
@@ -36,11 +35,8 @@ class MultiTaskSystem:
         self.config_server = ConfigServer()
         self.config_server.stop() # 初始是停止AP
         self.current_ap_status = False
-         
-        
-        # self.led = machine.Pin(12, machine.Pin.OUT)
-        self.sensor_counter = 0
-        # self.resource_timer = 0 XXXXXX
+          
+          
         self.tasks = []
         
         # Led WifiIndicator 初始化WIFI闪灯指示器
@@ -55,10 +51,7 @@ class MultiTaskSystem:
         
         # 拍卡设备实例 Card tapping device instance 
         self.uartM4255NfcModule = UartM4255NfcModule(self.uart, self.lcd) 
-        
-        # wifi lcd singal
-        # self.wifiSignalModule = WifiSignalModule(self.lcd)
-        
+         
         # Time LCD
         self.dateTimeModule = DateTimeModule(self.lcd)
          
@@ -155,14 +148,8 @@ class MultiTaskSystem:
         self.wifiIndicator = WifiIndicator(self.current_wifi_status)
         asyncio.create_task(self.wifiIndicator.blink())  # 启动异步任务
         
-    async def sensor_reader(self):
-        """模拟传感器数据读取"""
-        while True:
-            self.sensor_counter += 1
-            # 这里读取实际传感器数据
-            print(f"模拟传感器数据读取 Sensor reading #{self.sensor_counter}")
-            await asyncio.sleep(2)
- 
+    
+    # resource monitor
     async def resource_monitor(self):
         """系统资源监控"""
         while True:
@@ -185,12 +172,11 @@ class MultiTaskSystem:
         """主协程"""
         # 创建任务
         self.tasks = [
-            asyncio.create_task(self.wifi_manager_info()),
-            # asyncio.create_task(self.sensor_reader()),
-            # asyncio.create_task(self.uartM4255NfcModule.uart_card_listen_and_return()), 
+            asyncio.create_task(self.wifi_manager_info()), 
             asyncio.create_task(self.dateTimeModule.display_time()),
             asyncio.create_task(self.dateTimeModule.display_wifi_signal()),
-            asyncio.create_task(self.wifiIndicator.blink()), 
+            asyncio.create_task(self.wifiIndicator.blink()),
+            asyncio.create_task(self.uartM4255NfcModule.uart_card_listen_and_return()), 
             asyncio.create_task(self.resource_monitor()),
             asyncio.create_task(self.Counter())
             ]

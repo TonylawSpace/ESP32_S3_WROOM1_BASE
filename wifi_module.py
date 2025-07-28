@@ -6,9 +6,9 @@ import network
 import json
 import uasyncio as asyncio  # 添加异步支持
 
-# 在文件开头定义 DEBUG 常量 根據環境設置參數的值的大小
-DEBUG = True  # 调试时设为 True，发布时设为 False
-
+#常量與配置文件相關
+from const_and_config import DEBUG, ssid, password, url_scheme, url_host, tapping_card_led_pin, winfi_led_pin
+ 
 class WiFiCreator:
     def __init__(self):
         # 添加默认配置
