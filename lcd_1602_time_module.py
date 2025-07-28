@@ -66,7 +66,7 @@ class DateTimeModule:
                             
                         await asyncio.sleep(2)  # 异步等待
                         
-                       
+                        
                         # print("func:DateTimeModule::display_wifi_signal------------") 
                     
             except KeyboardInterrupt:

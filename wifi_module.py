@@ -67,7 +67,7 @@ class WiFiCreator:
             
             
             # 嘗試5次後 180秒後等待连接 調試環境下 120秒
-            timeout = 120 if DEBUG else 180 
+            timeout = 600 if DEBUG else 300 
             start_time = time.time()
             
             while not self.wlan.isconnected() and (time.time() - start_time) < timeout:

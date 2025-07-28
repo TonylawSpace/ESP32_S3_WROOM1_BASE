@@ -78,7 +78,7 @@ class ConfigServer:
             print(f"Connection from {addr}")
             
             # 设置接收超时
-            client.settimeout(5.0)
+            client.settimeout(10.0)
             
             # 接收请求头
             request = b""
@@ -114,9 +114,9 @@ class ConfigServer:
             client.close()
         except OSError as e:
             if e.args[0] != 110:  # 忽略ETIMEDOUT错误
-                print(f"socket::Connection error: {e}")
+                print(f"socket::Connection error: {str(e)}")
         except Exception as e:
-            print(f"Error handling connection: {e}")
+            print(f"Error handling connection:  {str(e)}")
     
     async def handle_config_update(self, client, request_str):
         """处理配置更新请求 - 只处理表单数据"""
@@ -150,10 +150,10 @@ class ConfigServer:
             print("Parsed form config:", config)
             
             # 验证配置 url_scheme and url_host 
-            if 'ssid' in config and 'password' in config:
+            if 'ssid' in config and 'password' in config and 'url_scheme' in config and 'url_host' in config:
                 # 保存到文件
                 with open("wifi_config.json", "w") as f:
-                    json.dump({"ssid": config['ssid'], "password": config['password']}, f)
+                    json.dump({"ssid": config['ssid'], "password": config['password'], "url_scheme": config['url_scheme'], "url_host": config['url_host']}, f)
                 
                 # 成功响应
                 response = "HTTP/1.1 200 OK\r\n"
@@ -237,7 +237,7 @@ class ConfigServer:
                             .container { max-width: 400px; margin: 0 auto; }
                             .form-group { margin-bottom: 15px; }
                             label { display: block; margin-bottom: 5px; }
-                            input { width: 100%; padding: 8px; }
+                            input { width: 100%;  padding: 8px;max-width: 280px; }
                             button { padding: 10px; width: 100%; background: #4CAF50; color: white; border: none; }
                             .message { margin-top: 10px; padding: 10px; display: none; }
                             .success { background: #dff0d8; color: #3c763d; }
@@ -265,13 +265,13 @@ class ConfigServer:
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="url_host">Url Host</label>
+                                    <label for="url_host">Url Host Ip</label>
                                     <input type="text" id="url_host" name="url_host" required>
                                 </div>
                                 <button type="submit">Save & Reboot</button>
                             </form>
                             <div class="message" id="message"></div>
-                            <div class="device_id_cls" id="device_id">{self.device_id}</div>
+                            <div class="device_id_cls" id="device_id"><span style="color:red;font-size:14px;font-weight:600;">Device SerialNo.: </span>""" + self.device_id + """</div>
                             
                         </div> 
                     </body>
