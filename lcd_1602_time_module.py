@@ -8,6 +8,7 @@ import time
 # 時間顯示模組 只顯示時間和月日 格式 row 0# 19:00:07 11-02
 class DateTimeModule:
     def __init__(self,lcd):
+        self.wifi_current_status = False
         self.lcd = lcd
         self.lcd_lock = asyncio.Lock()
         asyncio.create_task(self.display_time())
@@ -47,22 +48,27 @@ class DateTimeModule:
                     async with self.lcd_lock:
                         print("display_wifi_signal while------------")
                         # 设置光标位置到第2行第16列(注意：LCD通常从0开始计数)
-                        self.lcd.setCursor(15, 1)  # 修正：使用self.lcd
+                        self.lcd.setCursor(15, 1) 
                         # 显示wifi信号图标
                         if self.wifi_current_status:
-                            self.lcd.printout("*")  # 修正：使用self.lcd
+                            self.lcd.printout("*") 
                         else:
-                            self.lcd.printout("/")  # 修正：使用self.lcd
+                            self.lcd.printout("/")
+                            await asyncio.sleep(0.3)  
+                            self.lcd.printout("-")
+                            await asyncio.sleep(0.3)  
+                            self.lcd.printout("\")
+                            await asyncio.sleep(0.3)  
                             
                         await asyncio.sleep(2)  # 异步等待
                         
                         self.lcd.setCursor(15, 1)
                         # self.lcd.autoscroll()
                         self.lcd.printout(" ")  # 清空此格
-                        print("display_wifi_signal------------") 
+                        print("func:DateTimeModule::display_wifi_signal------------") 
                     
             except KeyboardInterrupt:
-                self.lcd.clear()  # 修正：使用self.lcd
+                self.lcd.clear() 
             
 # async def main():
 #     # 创建 LCD 对象

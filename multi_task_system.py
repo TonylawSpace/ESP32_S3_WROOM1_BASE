@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import uasyncio as asyncio
 import network
+import machine
 from machine import UART, Pin, I2C
 import time
 import gc
@@ -12,7 +13,7 @@ from wifi_module import WiFiCreator
 from wifi_led_module import WifiIndicator  # 导入WIFI 指示燈模块
 from config_server import ConfigServer  # 导入AP熱點模块
 from uart_m4255_module import UartM4255NfcModule # 导入UART拍卡M4255模块
-from lcd_1602_wifi_signal_module import WifiSignalModule  # 导入WifiSignalModule for lcd signal模块
+#from lcd_1602_wifi_signal_module import WifiSignalModule  # 导入WifiSignalModule for lcd signal模块
 from lcd_1602_time_module import DateTimeModule    # 导入DateTimeModule模块
 
 # 在文件开头定义 DEBUG 常量 根據環境設置參數的值的大小
@@ -56,7 +57,7 @@ class MultiTaskSystem:
         self.uartM4255NfcModule = UartM4255NfcModule(self.uart, self.lcd) 
         
         # wifi lcd singal
-        self.wifiSignalModule = WifiSignalModule(self.lcd)
+        # self.wifiSignalModule = WifiSignalModule(self.lcd)
         
         # Time LCD
         self.dateTimeModule = DateTimeModule(self.lcd)
@@ -126,9 +127,9 @@ class MultiTaskSystem:
                     await self.wifiIndicator.update_wifi_current_status(self.current_wifi_status)
                 
                  # 更新LCD WifiSignalModule的状态
-                if self.wifiSignalModule:
-                    print("wifiSignalModule.update_wifi_current_status")
-                    await self.wifiSignalModule.update_wifi_current_status(self.current_wifi_status)
+                if self.dateTimeModule:
+                    print("dateTimeModule.update_wifi_current_status")
+                    await self.dateTimeModule.update_wifi_current_status(self.current_wifi_status)
                      
                      
                 await asyncio.sleep(5 if DEBUG else 30)
@@ -186,9 +187,9 @@ class MultiTaskSystem:
         self.tasks = [
             asyncio.create_task(self.wifi_manager_info()),
             # asyncio.create_task(self.sensor_reader()),
-            asyncio.create_task(self.uartM4255NfcModule.uart_card_listen_and_return()), 
+            # asyncio.create_task(self.uartM4255NfcModule.uart_card_listen_and_return()), 
             asyncio.create_task(self.dateTimeModule.display_time()),
-            asyncio.create_task(self.wifiSignalModule.display_wifi_signal()),
+            asyncio.create_task(self.dateTimeModule.display_wifi_signal()),
             asyncio.create_task(self.wifiIndicator.blink()), 
             asyncio.create_task(self.resource_monitor()),
             asyncio.create_task(self.Counter())
@@ -196,7 +197,9 @@ class MultiTaskSystem:
 
         # 运行所有任务
         await asyncio.gather(*self.tasks)
-
+        
+     
+        
     def run(self):
         """启动系统"""
         try:
