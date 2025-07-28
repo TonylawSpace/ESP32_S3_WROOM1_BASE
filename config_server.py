@@ -1,5 +1,3 @@
-# config_server.py
-# -*- coding: utf-8 -*-
 import uasyncio as asyncio
 import network
 import ubinascii
@@ -56,8 +54,8 @@ class ConfigServer:
             self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.server_socket.bind(addr)
             self.server_socket.listen(1)
-            self.server_socket.settimeout(0.5)
-            
+            self.server_socket.settimeout(10) # 设置10秒超时
+             
             print(f"Configuration server started at {self.ap.ifconfig()[0]}:{self.port}")
             self.current_ap_status = True
         except Exception as e:
@@ -116,7 +114,7 @@ class ConfigServer:
             client.close()
         except OSError as e:
             if e.args[0] != 110:  # 忽略ETIMEDOUT错误
-                print(f"func::handle_connections Connection error: {e}")
+                print(f"socket::Connection error: {e}")
         except Exception as e:
             print(f"Error handling connection: {e}")
     
@@ -151,7 +149,7 @@ class ConfigServer:
             
             print("Parsed form config:", config)
             
-            # 验证配置
+            # 验证配置 url_scheme and url_host 
             if 'ssid' in config and 'password' in config:
                 # 保存到文件
                 with open("wifi_config.json", "w") as f:
@@ -268,7 +266,7 @@ class ConfigServer:
                                 </div>
                                 <div class="form-group">
                                     <label for="url_host">Url Host</label>
-                                    <input type="text" id="url_host" name="password" required>
+                                    <input type="text" id="url_host" name="url_host" required>
                                 </div>
                                 <button type="submit">Save & Reboot</button>
                             </form>

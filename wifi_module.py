@@ -31,7 +31,7 @@ class WiFiCreator:
     async def connect_wifi(self):
         """异步连接WiFi，带重试机制"""
         attempt = 0
-        max_attempts = 5 if DEBUG else 30
+        max_attempts = 5
         
         while attempt < max_attempts:
             attempt += 1
@@ -65,58 +65,29 @@ class WiFiCreator:
             
             print("Connection attempt do.......")
             
-            continue  # 实际可省略，因为循环会自动继续
-          
             
-            if self.wlan.isconnected():
-                print("WiFi connected successfully!")
-                print(f"IP: {self.wlan.ifconfig()[0]}")
-                return self.wlan
-            else:
-                print(f"Connection attempt {attempt} failed")
-                self.wlan.disconnect()
-                self.wlan.active(False)
-                await asyncio.sleep(3)
-        
-        print("\nAll connection attempts failed\n")
-        return None
-    
-    
-    async def connect_wifi0(self):
-        """异步连接WiFi，带重试机制"""
-        attempt = 0
-        max_attempts = 5 if DEBUG else 30
-        
-        while attempt < max_attempts:
-            attempt += 1
-            print(f"\nWiFi connection attempt {attempt}/{max_attempts}\n")
+            # 嘗試5次後 180秒後等待连接 調試環境下 120秒
+            timeout = 120 if DEBUG else 180 
+            start_time = time.time()
             
-            self.wlan = network.WLAN(network.STA_IF)
-            self.wlan.active(True)
-            
-            # 如果已经连接，直接返回
-            if self.wlan.isconnected():
-                print("\nAlready connected to WiFi\n")
-                return self.wlan
-            
-            # 确保有有效的SSID
-            if not self.wifi_ssid:
-                print("\nNo SSID configured\n")
-                await asyncio.sleep(5)
-                continue
-            
-            print(f"\nConnecting to: {self.wifi_ssid}\n")
-            
-            try:
-                self.wlan.connect(self.wifi_ssid, self.wifi_password)
-            except Exception as e:
-                print(f"\nfunc::connect_wifi exception: Connection error: {e}\n")  
+            while not self.wlan.isconnected() and (time.time() - start_time) < timeout:
+                status = self.wlan.status()
+                if status == network.STAT_CONNECTING:
+                    print(f"Connecting... {int(timeout - (time.time() - start_time))}s left")
+                elif status == network.STAT_NO_AP_FOUND:
+                    print("AP not found")
+                    break
+                elif status == network.STAT_WRONG_PASSWORD:
+                    print("Wrong password")
+                    break
+                elif status == network.STAT_CONNECT_FAIL:
+                    print("Connection failed")
+                    break
                 
-            # 无论是否异常，只要没连接成功就等待后继续
-            print("Connection attempt failed, retrying...")
-            await asyncio.sleep(2)
-            continue  # 实际可省略，因为循环会自动继续
-          
+                await asyncio.sleep(1)  #
+                
+                
+            
             if self.wlan.isconnected():
                 print("WiFi connected successfully!")
                 print(f"IP: {self.wlan.ifconfig()[0]}")
@@ -130,7 +101,7 @@ class WiFiCreator:
         print("\nAll connection attempts failed\n")
         return None
     
-    
+     
     # wifi是否连接
     async def isconnected(self):
         return self.wlan.isconnected() if self.wlan else False

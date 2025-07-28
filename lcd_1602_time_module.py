@@ -41,12 +41,12 @@ class DateTimeModule:
     # 顯示wifi信號
     async def display_wifi_signal(self):
             
-            print("display_wifi_signal try------------")
+            # print("display_wifi_signal try------------")
             try:
                 while True:
                     # 获取锁
                     async with self.lcd_lock:
-                        print("display_wifi_signal while------------")
+                        # print("display_wifi_signal while------------")
                         # 设置光标位置到第2行第16列(注意：LCD通常从0开始计数)
                         self.lcd.setCursor(15, 1) 
                         # 显示wifi信号图标
@@ -54,18 +54,20 @@ class DateTimeModule:
                             self.lcd.printout("*") 
                         else:
                             self.lcd.printout("/")
-                            await asyncio.sleep(0.3)  
+                            await asyncio.sleep(0.3)
+                            self.lcd.setCursor(15, 1) 
                             self.lcd.printout("-")
-                            await asyncio.sleep(0.3)  
-                            self.lcd.printout("\")
-                            await asyncio.sleep(0.3)  
+                            await asyncio.sleep(0.3)
+                            self.lcd.setCursor(15, 1) 
+                            self.lcd.printout("|")
+                            await asyncio.sleep(0.3)
+                            self.lcd.setCursor(15, 1) 
+                            self.lcd.printout(" ")  # 清空此格
                             
                         await asyncio.sleep(2)  # 异步等待
                         
-                        self.lcd.setCursor(15, 1)
-                        # self.lcd.autoscroll()
-                        self.lcd.printout(" ")  # 清空此格
-                        print("func:DateTimeModule::display_wifi_signal------------") 
+                       
+                        # print("func:DateTimeModule::display_wifi_signal------------") 
                     
             except KeyboardInterrupt:
                 self.lcd.clear() 
