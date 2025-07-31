@@ -3,7 +3,7 @@
 import uasyncio as asyncio
 import network
 import machine
-from machine import UART, Pin, I2C
+from machine import UART, Pin, I2C, RTC  # RTC 用于操作实时时钟
 import time
 import utime
 import ntptime
@@ -176,14 +176,47 @@ class MultiTaskSystem:
 
             await asyncio.sleep(240) # 6分鐘釋放操作一次
             
+#     async def sync_ntp_time(self):
+#         """同步NTP时间到设备RTC"""
+#         try:
+#             ntptime.settime()  # 同步NTP时间
+#             return True
+#         except Exception as e:
+#             print(f"\nNTP(Time) Synchronization failed: {e}\n")
+#             return False
+
+
     async def sync_ntp_time(self):
-        """同步NTP时间到设备RTC"""
+        """同步NTP时间到设备RTC，并转换为+8时区"""
         try:
-            ntptime.settime()  # 同步NTP时间
+            # 同步NTP时间（获取UTC时间）
+            ntptime.settime()
+            
+            # 获取当前RTC时间（UTC）
+            rtc = RTC()
+            utc_time = rtc.datetime()  # 格式：(年, 月, 日, 星期, 时, 分, 秒, 微秒)
+            
+            # 计算+8时区时间（UTC+8）
+            utc_hour = utc_time[4]
+            cst_hour = (utc_hour + 8) % 24  # 加8小时，取模24避免溢出
+            
+            # 构造新的时间元组（替换小时）
+            cst_time = (
+                utc_time[0], utc_time[1], utc_time[2],  # 年、月、日
+                utc_time[3],                             # 星期（自动计算，可不改）
+                cst_hour,                                # 东八区小时
+                utc_time[5], utc_time[6], utc_time[7]     # 分、秒、微秒
+            )
+            
+            # 设置RTC为东八区时间
+            rtc.datetime(cst_time)
+            
+            if DEBUG:
+                print(f"NTP同步成功，已转换为UTC+8时间: {cst_time}")
             return True
         except Exception as e:
             print(f"\nNTP(Time) Synchronization failed: {e}\n")
-            return False        
+            return False
  
     async def main(self):
         """主协程"""
