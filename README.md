@@ -2,7 +2,7 @@
 
 # ESP32_S3_WROOM1_BASE
 
-ESP32_S3_WROOM1_BASE ：ESP32-S3-WROOM-1 /ESP32-S3-DEV-KIT-N16R8-M(16MB flash) 的基礎功能：WIFI/AP/NFC/LCD
+ESP32_S3_WROOM1_BASE ：ESP32-S3-WROOM-1 / ESP32-S3-DEV-KIT-N16R8-M(16MB flash) 的基礎功能：WIFI/AP/NFC/LCD
 
 ## 底板
 
@@ -68,8 +68,12 @@ LCD螢幕：提示WIFI STATUS and AP STATUS
 
 ```
 wifi_config.json 預設配置內容
-{"ssid": "WiFi001", "password": "abc12345", "url_scheme": "http", "url_host": "192.168.0.9"}
+{"ssid": "WiFi001", "password": "abc12345", "url_scheme": "http", "url_host": "192.168.0.9","url_host_port": 8080}
 ```
+
+> [!TIP]
+>
+> 如果使用AP WIFI熱點配置比較麻煩，可以直接使用 複製 wifi_config.json文件到閃存，直接配置。
 
 
 
@@ -104,6 +108,12 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
 Accept-Encoding: gzip, deflate
 Accept-Language: zh-TW,zh-HK;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6 
+
+
+
+## 時間設置
+
+同步當前時間是 +8時區的北京香港烏魯木齊時間，也就是香港北京當地時間。
 
 
 
@@ -222,7 +232,19 @@ def uart_card_listen_and_return(self):
 
 DEMO [ACS DEVICE（Access Control System Device).MP4]
 
+### 1、後台Response請求：
 
+## http://localhost:8080/zh-HK/Admin/DeviceManage/CardDeviceSimplifiedEntry
+
+![image-20250730160802435](./README_IMGs/ReadMe/image-20250730160802435.png)
+
+### 2、ESP32提交和響應
+
+![image-20250730160157994](./README_IMGs/ReadMe/image-20250730160157994.png)
+
+> [!NOTE]
+>
+> ESP32提交到響應以及提示燈等等，整個流程約需要3-5秒。具體涉及異步線程等等，如果連續多個間隔不足一秒，測試是通過的。大體排隊打卡，如果人數過於密集，可以增加多個單片機進行拍卡處理。具體場景需要進一步的負載測試。
 
 ## 接線與壓線
 
@@ -239,3 +261,35 @@ https://www.bilibili.com/video/BV1fGRmYrEZJ/?spm_id_from=333.337.search-card.all
 ### 3. ESP32-S3 GPIO 擴展板
 
 ![image-20250726032539759](./README_IMGs/ReadMe/image-20250726032539759.png)
+
+
+
+## 雲端Attendance Post API
+
+拍卡事件，獲取NFC Card Number 以及當前時間 POST到雲端平台，
+
+第一步、POST雲端之前，先登記設備和NFC CARDNUMBER
+驗證設備是否登記： http://192.168.0.9:8080/zh-HK/Device/GetMainComBySerialNo/94a990029460
+
+第二步、POST API 內容：
+api :  en-US/Admin/DeviceManage/CardDeviceSimplifiedEntry
+強制 {Language} = en-US
+
+```
+Body Json PostData
+{
+  "DeviceSerialNo": "94a990029460", 
+
+  "OccurDateTime": 1628783438292,
+
+  "NfcCardNumber": "3991852973"
+}
+```
+
+注意：目前使用的硬件是 昱闵科技 UART接口M4255   uart_m4255_module.py::func：：uart_card_listen_and_return
+
+注意：http error: [Errno 104] ECONNRESET ：請求連接出錯，或者連接到localhost的低級錯誤。
+
+> [!IMPORTANT]
+>
+> **ESP32-S3提供的時間是本地時間，**而非 GMT格式時間，例如 香港本地時間是 22:30 ，不能寫成 02:30 GMT+08:00

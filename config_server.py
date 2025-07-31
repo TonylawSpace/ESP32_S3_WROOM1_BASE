@@ -8,7 +8,7 @@ import gc
 import time
 
 #常量與配置文件相關
-from const_and_config import DEBUG, ssid, password, url_scheme, url_host, tapping_card_led_pin, winfi_led_pin
+from const_and_config import DEBUG, ssid, password, url_scheme, url_host, url_port, tapping_card_led_pin, winfi_led_pin
  
 
 class ConfigServer:
@@ -114,7 +114,7 @@ class ConfigServer:
             
             client.close()
         except OSError as e:
-            if e.args[0] != 110:  # 忽略ETIMEDOUT错误
+            if e.args[0] != 110:  # 忽略ETIMEDOUT错误 
                 print(f"socket::Connection error: {str(e)}")
         except Exception as e:
             print(f"Error handling connection:  {str(e)}")
@@ -140,7 +140,7 @@ class ConfigServer:
                 remaining = content_length - len(body)
                 body += client.recv(remaining).decode('utf-8')
             
-            # 解析表单数据 (ssid=xxx&password=yyy)
+            # 解析表单数据 (ssid=xxx&password=yyy) 
             print("Parsing form data")
             config = {}
             for pair in body.split('&'):
@@ -150,11 +150,11 @@ class ConfigServer:
             
             print("Parsed form config:", config)
             
-            # 验证配置 url_scheme and url_host 
-            if 'ssid' in config and 'password' in config and 'url_scheme' in config and 'url_host' in config:
+            # 验证配置 url_scheme and url_host   
+            if 'ssid' in config and 'password' in config and 'url_scheme' in config and 'url_host' in config and 'url_port' in config:
                 # 保存到文件
                 with open("wifi_config.json", "w") as f:
-                    json.dump({"ssid": config['ssid'], "password": config['password'], "url_scheme": config['url_scheme'], "url_host": config['url_host']}, f)
+                    json.dump({"ssid": config['ssid'], "password": config['password'], "url_scheme": config['url_scheme'], "url_host": config['url_host'], "url_port": config['url_port']}, f)
                 
                 # 成功响应
                 response = "HTTP/1.1 200 OK\r\n"
@@ -252,11 +252,11 @@ class ConfigServer:
                             <form action="/update_config" method="post" enctype="application/x-www-form-urlencoded">
                                 <div class="form-group">
                                     <label for="ssid">WiFi Name (SSID)</label>
-                                    <input type="text" id="ssid" name="ssid" required>
+                                    <input type="text" id="ssid" name="ssid" value="WiFi001" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="text" id="password" name="password" required>
+                                    <input type="text" id="password" name="password" value="abc12345" required>
                                 </div> 
                                 <div class="form-group">
                                     <label for="url_scheme">Url Scheme</label>
@@ -268,6 +268,7 @@ class ConfigServer:
                                 <div class="form-group">
                                     <label for="url_host">Url Host Ip</label>
                                     <input type="text" id="url_host" name="url_host" value="192.168.0.1" title="The cloud validate function will be not enable as default value(192.168.0.1)" required>
+                                    <input type="text" id="url_port" name="url_port" value="8080" title="url_port,defaut value is 8080" required style="max-width:30px">
                                 </div>
                                 <button type="submit">Save & Reboot</button>
                             </form>

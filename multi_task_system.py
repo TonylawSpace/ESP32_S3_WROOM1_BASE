@@ -5,6 +5,8 @@ import network
 import machine
 from machine import UART, Pin, I2C
 import time
+import utime
+import ntptime
 import gc
 import os
 import ubinascii
@@ -15,8 +17,11 @@ from config_server import ConfigServer  # 导入AP熱點模块
 from uart_m4255_module import UartM4255NfcModule # 导入UART拍卡M4255模块
 from lcd_1602_time_module import DateTimeModule    # 导入DateTimeModule模块
 
-# 在文件开头定义 DEBUG 常量 根據環境設置參數的值的大小
-DEBUG = True  # 调试时设为 True，发布时设为 False
+#常量與配置文件相關
+from const_and_config import device_id, DEBUG, ssid, password, url_scheme, url_host, tapping_card_led_pin, winfi_led_pin
+
+# # 在文件开头定义 DEBUG 常量 根據環境設置參數的值的大小
+# DEBUG = True  # 调试时设为 True，发布时设为 False
 
 # 创建全局锁
 multi_task_lock = asyncio.Lock()
@@ -58,7 +63,7 @@ class MultiTaskSystem:
     async def wifi_manager_info(self):
         """管理WiFi连接和状态监控"""
         
-        print(f"\nfunc::wifi_manager_info [Manage WiFi connections and status monitoring]\n")
+        # print(f"\nfunc::wifi_manager_info [Manage WiFi connections and status monitoring]\n")
         
         # 初始连接
         try:
@@ -76,12 +81,14 @@ class MultiTaskSystem:
                 # 安全地获取当前状态
                 current_status = self.wlan.isconnected() if self.wlan else False
                 self.current_wifi_status = current_status
-                print(f"WIFI STATUS: {current_status}")
+                if DEBUG:
+                    print(f"WIFI STATUS: {current_status}")
                 
                 if current_status:
                     ip = self.wlan.ifconfig()[0]
-                    print(f"WiFi connected! IP: {ip}")
-                    
+                    if DEBUG :
+                        print(f"WiFi connected! IP: {ip}")
+                     
                     # 停止AP如果正在运行
                     if self.ap_task:
                         print("Stopping AP mode...")
@@ -91,7 +98,8 @@ class MultiTaskSystem:
                         self.current_ap_status = False
                         ap_start_attempted = False
                 else:
-                    print("WiFi disconnected. Attempting to reconnect...")
+                    if DEBUG :
+                        print("WiFi disconnected. Attempting to reconnect...")
                     try:
                         # 尝试重新连接
                         reconnect_success = await self.wifiCreator.reconnect()
@@ -116,12 +124,12 @@ class MultiTaskSystem:
                 
                 # 更新Led WifiIndicator的状态
                 if self.wifiIndicator:
-                    print("wifiIndicator.update_wifi_current_status")
+                    # print("wifiIndicator.update_wifi_current_status")
                     await self.wifiIndicator.update_wifi_current_status(self.current_wifi_status)
                 
                  # 更新LCD WifiSignalModule的状态
                 if self.dateTimeModule:
-                    print("dateTimeModule.update_wifi_current_status")
+                    # print("dateTimeModule.update_wifi_current_status")
                     await self.dateTimeModule.update_wifi_current_status(self.current_wifi_status)
                      
                      
@@ -167,6 +175,15 @@ class MultiTaskSystem:
                 print("Performed garbage collection")
 
             await asyncio.sleep(240) # 6分鐘釋放操作一次
+            
+    async def sync_ntp_time(self):
+        """同步NTP时间到设备RTC"""
+        try:
+            ntptime.settime()  # 同步NTP时间
+            return True
+        except Exception as e:
+            print(f"\nNTP(Time) Synchronization failed: {e}\n")
+            return False        
  
     async def main(self):
         """主协程"""
@@ -202,16 +219,22 @@ class MultiTaskSystem:
             for task in self.tasks:
                 task.cancel()
             asyncio.new_event_loop()
-
+            
     async def Counter(self):
         global counter
-        while True:
-            # 获取锁
+        while True: 
             async with multi_task_lock:
                 # 关键代码区域
                 counter += 1
                 print(f"Counter: {counter}")
-            await asyncio.sleep(60)  # 接下來的 3秒不使用CPU,释放CPU，允许其他协程运行
+                
+                #如果联网，则更新设备时间 首五小时 每次更新时间 后每十天updat
+                if counter < 3 or counter % 240 == 0:   
+                    await self.sync_ntp_time()
+                    
+            # 接下來的 3600秒不使用CPU,释放CPU，允许其他协程运行
+            await asyncio.sleep(3600)
+    
         
 """
 TEST

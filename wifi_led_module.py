@@ -3,7 +3,7 @@ from machine import Pin
 from time import sleep
 
 #常量與配置文件相關
-from  const_and_config import DEBUG, ssid, password, url_scheme, url_host, tapping_card_led_pin, winfi_led_pin
+from  const_and_config import device_id, DEBUG, ssid, password, url_scheme, url_host, tapping_card_led_pin, winfi_led_pin
  
 """
 WIFI信號燈
@@ -41,7 +41,7 @@ class WifiIndicator:
                         else:
                             await asyncio.sleep(30)   # 生产环境下使用正常休眠时间 
                     else:
-                        await asyncio.sleep(1)
+                        await asyncio.sleep(0.2)
                         print("[WifiIndicator] WIFI disconnected!")
                     
                     # 灭灯
@@ -63,7 +63,7 @@ class WifiIndicator:
 
 """
 去掉引號進行測試
-"""
+
 # 使用示例
 async def main():
     wifi_led = WifiIndicator(wifi_current_status=True)
@@ -75,3 +75,4 @@ try:
     asyncio.run(main())
 except KeyboardInterrupt:
     pass
+"""

@@ -5,9 +5,12 @@ from machine import UART, Pin
 import time
 import binascii
 import LCD1602
- 
+from cloud_module import CloudModule
+#常量與配置文件相關
+from const_and_config import device_id, DEBUG, ssid, password, url_scheme, url_host, tapping_card_led_pin, winfi_led_pin
+
 uart_lcd_lock = asyncio.Lock()
-tapping_card_led_pin = 38 # 拍卡指示燈 RGB_LED GPIO038
+# tapping_card_led_pin = 38 # 拍卡指示燈 RGB_LED GPIO038 改在 const_and_config.py 定义 
 tapping_card_led_lock = asyncio.Lock() # 拍卡指示燈線程鎖
 
 class UartM4255NfcModule:
@@ -73,14 +76,7 @@ class UartM4255NfcModule:
             print(f"\nCard number retrieval failed:\n")
             print(f"Card number retrieval failed: {str(e)}")
             return None
-        
-    def GetUnixTime():
-        """返回目前Unix時間，單位為毫秒"""
-        # 获取秒数（浮点数）
-        seconds = time.time()
-        # 转换为毫秒并取整
-        return int(seconds * 1000)
-    
+         
     # LCD 顯示拍卡號碼
     async def display_card_number(self, card_number):
         try:
@@ -147,14 +143,22 @@ class UartM4255NfcModule:
                                 # 显示card number
                                 await self.display_card_number(card_id)
                                 
-                                # 在此添加业务逻辑
-                                print("\n")
-                                print("-----------------------------------------------------------------------------------------------------")
-                                print(f"在此添加业务逻辑（如存储卡号、控制继电器等）: {card_id}")
-                                print(f"Add business logic here (such as storage card number, control relay, etc.): {card_id}")
-                                print("-----------------------------------------------------------------------------------------------------")
-                                print("\n")
                                 
+                                
+                                cloudModule = CloudModule()
+                                is_valid_card = await cloudModule.post_validate(card_id)
+                                if is_valid_card:
+                                    print(f"\nSUCCESS! IT IS A VALID REGISTED CARD: {card_id}\n")
+                                    # 在此添加业务逻辑
+                                    print("\n")
+                                    print("-----------------------------------------------------------------------------------------------------")
+                                    print(f"在此添加业务逻辑（如存储卡号、控制继电器等）: {card_id}")
+                                    print(f"Add business logic here (such as storage card number, control relay, etc.): {card_id}")
+                                    print("-----------------------------------------------------------------------------------------------------")
+                                    print("\n")
+                                else:
+                                    print(f"\nFAIL! IT IS A INVALID CARD OR NOT A REGISTED CARD: {card_id}\n")
+                                    
                                 # 拍卡指示燈業務
                                 async with tapping_card_led_lock:
                                     self.tapping_card_led.on()
@@ -174,6 +178,7 @@ class UartM4255NfcModule:
             print("[Exception] Function::uart_card_listen_and_return has terminated!!!\n")
             return None
 
+"""
 
 async def test_UartM4255NfcModule():
     print("开始")
@@ -194,3 +199,5 @@ if __name__ == "__main__":
     asyncio.create_task(test_UartM4255NfcModule())
     # 启动事件循环
     asyncio.get_event_loop().run_forever()
+    
+"""    

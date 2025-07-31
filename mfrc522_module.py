@@ -1,99 +1,44 @@
-from machine import Pin
+from machine import Pin, SPI
 import uasyncio as asyncio
 from os import uname
 import LCD1602
 import time
-# from mfrc5cc import MFRC522
+from mfrc522 import MFRC522
 
 #  NXP RC522 射频模块应用
 #  ref https://github.com/gwvsol/ESP32-RFID-RC522 
 
 # NFC门禁系统：通过读取员工或访客携带的 RFID 卡片的 UID，
 
-
-# 创建对应的引脚对象
-sck = Pin(18, Pin.OUT)
-mosi = Pin(23, Pin.OUT)
-miso = Pin(19, Pin.OUT)
-sda = Pin(5, Pin.Out)
-
-# 創建 SPI對象
-spi = SPI(baudrate=100000, polarity=0, phase=0, sck=sck, mosi=mosi, mosio=mosio)
-
 class MfrcUtility:
-    
-    def read_id():
-        # 1. 创建RFID操作对象
-        rfid = MFRC522(spi, sda)
+    counter = 0  # 类属性，用于计数
 
-        # 2. 循环读取数据
-        while True:
+    def __init__(self, spi, rst, cs):
+        self.rfid = MFRC522(spi, rst, cs)
 
-        # 3.复位应答
-        stat, tag_type = rfid.request(rfid.REQIDL)
-        if stat == rfid.OK:
-        #4.防冲突检测,提取玉d号
-        stat, raw_uid = rfid.anticoll()
-        if stat == rfid.OK:
-        _id= "0x%02xX02x%02xX02x"%(raw_uid[0], raw_uid[1], raw_uid[2], raw_uid[3])
-        print("rfid |/fid:", id, raw_uid)
-
-        sleep_ms(500)
-
-        if name == " main ":
-        read_id()
-
-    def do_read():
-
-        if uname()[0] == 'WiPy':
-            rdr = mfrc522.MFRC522("GP14", "GP16", "GP15", "GP22", "GP17")
-        elif uname()[0] == 'esp32':
-            rdr = mfrc522.MFRC522(0, 2, 4, 5, 14)
+    def do_read_nfc(self):
+        result = self.rfid.read_card()
+        self.counter += 1  # 通过 self 访问类属性并进行修改
+        if result is not None:
+            uid, card_data = result
+            print(f"Card detected. {self.counter}")
+            print(f"Read card UID: {uid}")
+            print(f"Card data: {card_data}")
+            return uid, card_data
         else:
-            raise RuntimeError("Unsupported platform")
-
-        print("")
-        print("Place card before reader to read from address 0x08")
-        print("")
-
-        try:
-            while True:
-            
-
-                
-                (stat, tag_type) = rdr.request(rdr.REQIDL)
-
-                if stat == rdr.OK:
-
-                    (stat, raw_uid) = rdr.anticoll()
-
-                    if stat == rdr.OK:
-                        print("New card detected")
-                        print("  - tag type: 0x%02x" % tag_type)
-                        print("  - uid	 : 0x%02x%02x%02x%02x" % (raw_uid[0], raw_uid[1], raw_uid[2], raw_uid[3]))
-                        print("")
-                        
-
-                        if rdr.select_tag(raw_uid) == rdr.OK:
-
-                            key = [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]
-
-                            if rdr.auth(rdr.AUTHENT1A, 8, key, raw_uid) == rdr.OK:
-                                print("Address 8 data: %s" % rdr.read(8))
-                                rdr.stop_crypto1()
-                            else:
-                                print("Authentication error")
-                        else:
-                            print("Failed to select tag")
-                            
-                        
-
-
-        except KeyboardInterrupt:
-            print("Bye")
-
+            print(f"No card detected. {self.counter}")
+            return None
 
 # 启动系统
 if __name__ == "__main__":
-     
-     print(uname()[0])
+    print(uname()[0])
+    # 初始化SPI接口，指定mosi、miso、sck引脚
+    spi = SPI(2, baudrate=1000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(16), miso=Pin(17))
+    # 初始化引脚
+    rst = Pin(15, Pin.OUT)
+    cs = Pin(19, Pin.OUT)  # SDA（数据接口）实际上就相当于CS引脚。在 SPI 通信里，SDA有时候也会被当作CS来使用。
+
+    utility = MfrcUtility(spi, rst, cs)
+    while True:
+        utility.do_read_nfc()
+        time.sleep(1)
