@@ -7,7 +7,7 @@ import json
 import uasyncio as asyncio  # 添加异步支持
 
 #常量與配置文件相關
-from const_and_config import device_id, DEBUG, ssid, password, url_scheme, url_host, tapping_card_led_pin, winfi_led_pin
+from const_and_config import device_id, DEBUG, ssid, password, url_scheme, url_host, url_port, tapping_card_led_pin, winfi_led_pin
  
 class WiFiCreator:
     def __init__(self):
@@ -132,7 +132,7 @@ class WiFiCreator:
     
 """ TEST
 
-"""   
+  
 # start the wifi module test system
 if __name__ == "__main__":
     # create a instance
@@ -144,5 +144,5 @@ if __name__ == "__main__":
     
     asyncio.run(test_connection())
     
-    
+"""
    

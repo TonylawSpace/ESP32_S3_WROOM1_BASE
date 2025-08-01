@@ -102,7 +102,37 @@ class UartM4255NfcModule:
             self.lcd.clear()
         except Exception as e:
             print(f"\nError in display_card_number: {e}\n")
-                       
+    
+    # LCD 顯示拍卡號碼
+    async def cloud_validate_success(self, success ,card_number):
+        try:
+            async with uart_lcd_lock:
+                print("\n-------------------------------------------")
+                print(f"func::cloud_validate_success: {card_number}")
+                print("-------------------------------------------\n")
+                
+                if success:
+                    # 显示卡号SUCCESS
+                    self.lcd.setCursor(0, 1)
+                    self.lcd.printout(" " * 16)  # 清空第二行
+                    self.lcd.setCursor(0, 1)
+                    self.lcd.printout(f"Save:{card_number}")
+                else:
+                    # 显示卡号FAIL
+                    self.lcd.setCursor(0, 1)
+                    self.lcd.printout(" " * 16)  # 清空第二行
+                    self.lcd.setCursor(0, 1)
+                    self.lcd.printout(f"Fail:{card_number}")
+                    
+                # 1 秒後 清空卡號保護隱私 
+                await asyncio.sleep(1)  # 修正：添加await 
+                self.lcd.setCursor(0, 1)  # 清空第二行
+                self.lcd.printout(" " * 16) 
+                 
+        except KeyboardInterrupt:
+            self.lcd.clear()
+        except Exception as e:
+            print(f"\nError in display_card_number: {e}\n")
             
     async def uart_card_listen_and_return(self):
         """
@@ -142,9 +172,7 @@ class UartM4255NfcModule:
                                 
                                 # 显示card number
                                 await self.display_card_number(card_id)
-                                
-                                
-                                
+                                 
                                 cloudModule = CloudModule()
                                 is_valid_card = await cloudModule.post_validate(card_id)
                                 if is_valid_card:
@@ -158,7 +186,10 @@ class UartM4255NfcModule:
                                     print("\n")
                                 else:
                                     print(f"\nFAIL! IT IS A INVALID CARD OR NOT A REGISTED CARD: {card_id}\n")
-                                    
+                                
+                                # 如果post 雲端 返回 成功或失敗的驗證 傳入 lcd顯示雲端驗證結果
+                                await self.cloud_validate_success(is_valid_card ,card_id)
+                                
                                 # 拍卡指示燈業務
                                 async with tapping_card_led_lock:
                                     self.tapping_card_led.on()

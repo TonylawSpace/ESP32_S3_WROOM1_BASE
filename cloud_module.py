@@ -33,7 +33,7 @@ class CloudModule:
             # 构建请求数据
             post_json = {
                 "deviceSerialNo": self.device_id,
-                "occurDateTime": CloudModule.get_unix_time_ms(),
+                "occurDateTime": CloudModule.get_unix_time_ms(),  
                 "nfcCardNumber": nfc_card_number
             }
 
@@ -74,7 +74,7 @@ class CloudModule:
 
     async def async_request(self, method, url, **kwargs):
         """异步HTTP请求包装器 Asynchronous HTTP request wrapper"""
-        loop = asyncio.get_event_loop()
+        # loop = asyncio.get_event_loop()
         # 使用小延迟释放控制权
         while True:
             await asyncio.sleep(0)
@@ -91,32 +91,25 @@ class CloudModule:
                     await asyncio.sleep(1)  # 等待1秒后重试
                     continue
                 raise
-            
-    @staticmethod
+             
+    @staticmethod 
     def get_unix_time_ms():
-        """
-        返回指定时区的Unix时间戳（毫秒） 
-        """
-        # 获取MicroPython epoch时间（2000-01-01）
-        micropython_epoch_time = utime.time()
+         
+        """返回UTC+8时区的标准Unix时间戳（毫秒），兼容MicroPython epoch"""
+        # 1 获取当前时间戳（秒数，从2000-01-01开始）
+        micropython_epoch_time = time.time()  # 使用time.time()获取数值时间戳
         
-        # 转换为Unix epoch时间（1970-01-01）
-        unix_epoch_time = micropython_epoch_time + 946684800  # 2000到1970-01-01的秒数差
+        # 2 转换为标准Unix epoch（1970-01-01起点）
+        unix_epoch_time = micropython_epoch_time + 946684800  # 2000->1970的秒数差 
+        print(f"unix_epoch_time = {unix_epoch_time}")
         
-        # 转换为毫秒
-        unix_epoch_millis = unix_epoch_time * 1000
+        # 3 转换为UTC+8时区（+8小时 = 28800秒）
+        cst_epoch_time = unix_epoch_time + 28800
+        print(f"cst_epoch_time = {cst_epoch_time} (utc)")
         
-        return unix_epoch_millis
-
-    @staticmethod
-    def sync_ntp_time():
-        """同步NTP时间到设备RTC"""
-        try:
-            ntptime.settime()  # 同步NTP时间
-            return True
-        except Exception as e:
-            print(f"NTP同步失败: {e}")
-            return False
+        # 4 转换为毫秒
+        return int(cst_epoch_time * 1000)
+     
  
         
     @staticmethod

@@ -220,6 +220,8 @@ ESP32-S3 支援多個 UART（通用非同步收發器）接口，可與各種設
 
 ## NFC拍卡業務
 
+硬件: 閔行科技 UART M4255 NFC
+
 ### 類 class UartM4255NfcModule:
 
 ### 函數 def uart_card_listen_and_return(self):
@@ -234,7 +236,7 @@ DEMO [ACS DEVICE（Access Control System Device).MP4]
 
 ### 1、後台Response請求：
 
-## http://localhost:8080/zh-HK/Admin/DeviceManage/CardDeviceSimplifiedEntry
+http://localhost:8080/zh-HK/Admin/DeviceManage/CardDeviceSimplifiedEntry
 
 ![image-20250730160802435](./README_IMGs/ReadMe/image-20250730160802435.png)
 
@@ -293,3 +295,7 @@ Body Json PostData
 > [!IMPORTANT]
 >
 > **ESP32-S3提供的時間是本地時間，**而非 GMT格式時間，例如 香港本地時間是 22:30 ，不能寫成 02:30 GMT+08:00
+>
+> NTP同步成功，已转换为UTC+8时间: (2025, 7, 31, 3, 2, 54, 8, 90) # 格式：(年, 月, 日, 星期, 时, 分, 秒, 微秒)
+
+<video src="./README_IMGs/拍卡到雲端驗證2.mp4"></video>
