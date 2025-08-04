@@ -10,11 +10,13 @@ ESP32_S3_WROOM1_BASE ：ESP32-S3-WROOM-1 / ESP32-S3-DEV-KIT-N16R8-M(16MB flash) 
 
 ESP32-S3-DEV-KIT-N16R8-M【16MB flash】
 
+![image-20250804174141329](./README_IMGs/ReadMe/image-20250804174141329.png)
+
 ![ESP32-S3-DEV-KIT-N16R8](./README_IMGs/PROJECT_WIFI_AP_LCD1602/ESP32-S3-DEV-KIT-N8R8-details-13.jpg)
 
 ![ESP32-S3-DEV-KIT-N8R8-details-13.jpg](./README_IMGs/PROJECT_WIFI_AP_LCD1602/ESP32-S3-DEV-KIT-N8R8-details-13-17527306g)
 
-
+http://www.waveshare.net/wiki/ESP32-S3-DEV-KIT-N16R8-M 
 
 ## WIFI 連接資源
 
@@ -113,7 +115,7 @@ Accept-Language: zh-TW,zh-HK;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6
 
 ## 時間設置
 
-同步當前時間是 +8時區的北京香港烏魯木齊時間，也就是香港北京當地時間。
+同步當前時間是GMT時間(格林威治時間)，也就是非北京香港當地時間。提取顯示和拍卡的時間是加上+8:00小時，不影響實際的當地時間的表示。
 
 
 
@@ -185,11 +187,11 @@ lcd.printout("Hello,World!")#寫入字符
 
 ## WIFI LED 信號燈
 
-WIFI 功能指示燈：DEBUG狀態 10秒，生產環境 30秒
+WIFI 功能指示燈 ESP32管腳GP02 連接RGB燈管腳B：DEBUG狀態 10秒，生產環境 30秒
 
 WIFI信號燈
 功能與用法說明：
-ESP32-S2 LCD 使用引腳 PIN1#（GP2）
+ESP32-S2 LCD 使用引腳 PIN1#（GP02）
 正常：每30秒閃一秒
 
 ## NFC拍卡 M4255
@@ -248,6 +250,28 @@ http://localhost:8080/zh-HK/Admin/DeviceManage/CardDeviceSimplifiedEntry
 >
 > ESP32提交到響應以及提示燈等等，整個流程約需要3-5秒。具體涉及異步線程等等，如果連續多個間隔不足一秒，測試是通過的。大體排隊打卡，如果人數過於密集，可以增加多個單片機進行拍卡處理。具體場景需要進一步的負載測試。
 
+
+
+## 拍卡指示燈
+
+拍卡指示燈 G 管腳连 GPIO38         RGB_LED :  G<—>GPIO038
+
+tapping_card_led_pin = 38 
+
+##  WIFI信號燈
+
+WIFI信號燈 RGB_LED GPIO02 winfi_led_pin = 2 
+
+
+
+## 拍卡後台回傳
+
+http://localhost:8080/zh-HK/Admin/AttendanceLog/List
+
+<video src="./README_IMGs/NXP%20RC522_CONN_ESP32-S3-WROOM-1/The%20effect%20of%20tapping%20the%20card%E6%8B%8D%E5%8D%A1%E5%9B%9E%E5%82%B3%E7%9A%84%E6%95%88%E6%9E%9C.mp4"></video>
+
+
+
 ## 接線與壓線
 
 ### 1. XH2.54端子壓線
@@ -299,3 +323,37 @@ Body Json PostData
 > NTP同步成功，已转换为UTC+8时间: (2025, 7, 31, 3, 2, 54, 8, 90) # 格式：(年, 月, 日, 星期, 时, 分, 秒, 微秒)
 
 <video src="./README_IMGs/拍卡到雲端驗證2.mp4"></video>
+
+> [!TIP]
+>
+> 屏幕中，[ ***** ] 表示WIFI網絡信號是否正常連接。
+
+<video src="./README_IMGs/%E6%8B%8D%E5%8D%A1%E5%88%B0%E9%9B%B2%E7%AB%AF%E9%A9%97%E8%AD%892.mp4"></video>
+
+## PCB文檔與畫圖
+
+虛擬電路畫圖 D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\ESP32-S3-DEV-KIT-N8R8-電路圖.PNG
+
+
+
+## 電子元件採購列表
+
+- [x] 1. **ESP32-S3-DEV-KIT-N16R8-M[16MB flash] 加焊排針** 
+
+- [x] 2. **ESP32-S3扩展板模块**
+
+- [x] 3. **Modbus RTU 单路继电器模块 TTL UART**
+
+- [x] 4. **微雪 LCD1602 I2C接口 蓝底白字 带背光 LCD 液晶顯示屏**
+
+- [x] 5. **閔行科技 NFC讀寫 M4255-HA/UART TTL接口/3.3V**
+
+  6. 電導線 11條 長度 15-20cm
+
+     
+
+
+
+
+
+ 

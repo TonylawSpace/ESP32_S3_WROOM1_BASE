@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CEDAA37E-E922-41C4-86A5-943552DD81E3}|thread.csproj|d:\\eps32\\app_esp32_s3_wroom_1\\other\\nfc_cursor_focus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CEDAA37E-E922-41C4-86A5-943552DD81E3}|thread.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEDAA37E-E922-41C4-86A5-943552DD81E3}|thread.csproj|D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEDAA37E-E922-41C4-86A5-943552DD81E3}|thread.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEDAA37E-E922-41C4-86A5-943552DD81E3}|thread.csproj|D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEDAA37E-E922-41C4-86A5-943552DD81E3}|thread.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:10:03.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAAAAL8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:09:30.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\Form1.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "Form1.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:06:53.522Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

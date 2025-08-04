@@ -1,0 +1,20 @@
+FT232 USB转UART串口模块 CP2102CH340 USB转TTL模块带电源隔离
+
+
+XXXX 不能安装在Win 11
+通过网盘分享的文件：CH340SER.EXE
+链接: https://pan.baidu.com/s/1qIBGDIbrFjp64Tthj_3Pgg?pwd=p7ap 提取码: p7ap 
+--来自百度网盘超级会员v8的分享
+
+从这个下载： 
+https://sparks.gogo.co.nz/ch340.html?srsltid=AfmBOopwZDxoneEKZglb9waS5-9JI7CH7nBenAIkL9uEk13Fgnciq2Jr
+
+或者 我的百度网盘
+通过网盘分享的文件：CH34x_Install_Windows_v3_4.zip
+链接: https://pan.baidu.com/s/1DvkOaLfg2Izy3UpDtv8iMg 提取码: cssp
+
+
+淘宝购买
+https://detail.tmall.com/item.htm?id=657673795124
+
+

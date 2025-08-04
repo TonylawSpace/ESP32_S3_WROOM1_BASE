@@ -92,7 +92,7 @@ class UartM4255NfcModule:
                 self.lcd.printout(f"Card:{card_number}")
                  
                 # 2 秒後 清空卡號保護隱私 
-                await asyncio.sleep(2)  # 修正：添加await
+                await asyncio.sleep(1)  # 修正：添加await
                 
                 self.lcd.setCursor(0, 1)  # 清空第二行
                 self.lcd.printout(" " * 16) 

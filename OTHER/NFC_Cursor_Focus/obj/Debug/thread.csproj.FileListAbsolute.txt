@@ -1,0 +1,189 @@
+C:\Users\WeiZai520\Desktop\1356\thread\thread\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\WeiZai520\Desktop\1356\thread\thread\obj\Debug\thread.Form1.resources
+C:\Users\WeiZai520\Desktop\1356\thread\thread\obj\Debug\thread.Properties.Resources.resources
+C:\Users\WeiZai520\Desktop\1356\thread\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+C:\Users\WeiZai520\Desktop\1356\thread\thread\bin\Debug\thread.exe
+C:\Users\WeiZai520\Desktop\1356\thread\thread\bin\Debug\thread.pdb
+C:\Users\WeiZai520\Desktop\1356\thread\thread\obj\Debug\thread.exe
+C:\Users\WeiZai520\Desktop\1356\thread\thread\obj\Debug\thread.pdb
+D:\其他\应用软件\13.56MHZ\C2308读写软件\thread\obj\Debug\thread.exe
+D:\其他\应用软件\13.56MHZ\C2308读写软件\thread\obj\Debug\thread.pdb
+D:\其他\应用软件\13.56MHZ\C2308读写软件\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他\应用软件\13.56MHZ\C2308读写软件\thread\obj\Debug\thread.Form1.resources
+D:\其他\应用软件\13.56MHZ\C2308读写软件\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他\应用软件\13.56MHZ\C2308读写软件\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他\应用软件\13.56MHZ\C2308读写软件\thread\bin\Debug\thread.exe
+D:\其他\应用软件\13.56MHZ\C2308读写软件\thread\bin\Debug\thread.pdb
+D:\其他\应用软件\13.56MHZ\C2308读写软件0703\thread\obj\Debug\thread.exe
+D:\其他\应用软件\13.56MHZ\C2308读写软件0703\thread\obj\Debug\thread.pdb
+D:\其他\应用软件\13.56MHZ\C2308读写软件0703\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他\应用软件\13.56MHZ\C2308读写软件0703\thread\obj\Debug\thread.Form1.resources
+D:\其他\应用软件\13.56MHZ\C2308读写软件0703\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他\应用软件\13.56MHZ\C2308读写软件0703\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他\应用软件\13.56MHZ\C2308读写软件0703\thread\bin\Debug\thread.exe
+D:\其他\应用软件\13.56MHZ\C2308读写软件0703\thread\bin\Debug\thread.pdb
+D:\其他\应用软件\13.56MHZ\C2308读写软件0812\thread\obj\Debug\thread.exe
+D:\其他\应用软件\13.56MHZ\C2308读写软件0812\thread\obj\Debug\thread.pdb
+D:\其他\应用软件\13.56MHZ\C2308读写软件0812\thread\bin\Debug\thread.exe
+D:\其他\应用软件\13.56MHZ\C2308读写软件0812\thread\bin\Debug\thread.pdb
+D:\其他\应用软件\13.56MHZ\C2308读写软件0812\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他\应用软件\13.56MHZ\C2308读写软件0812\thread\obj\Debug\thread.Form1.resources
+D:\其他\应用软件\13.56MHZ\C2308读写软件0812\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他\应用软件\13.56MHZ\C2308读写软件0812\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2\thread\obj\Debug\thread.exe
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2\thread\obj\Debug\thread.pdb
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2\thread\obj\Debug\thread.Form1.resources
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2\thread\bin\Debug\thread.exe
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2\thread\bin\Debug\thread.pdb
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.exe
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.pdb
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2(内部版本)\thread\bin\Debug\thread.exe
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2(内部版本)\thread\bin\Debug\thread.pdb
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.Form1.resources
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他\C2308A\软件\RS485\C2308软件版本V1.1 RS485（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.exe
+D:\其他\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\bin\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\bin\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.Form1.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.2(内部版本)\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部版本)\thread\obj\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部版本)\thread\obj\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部版本)\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部版本)\thread\obj\Debug\thread.Form1.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部版本)\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部版本)\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部版本)\thread\bin\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部版本)\thread\bin\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部稳定版本)\thread\obj\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部稳定版本)\thread\obj\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部稳定版本)\thread\bin\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部稳定版本)\thread\bin\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部稳定版本)\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部稳定版本)\thread\obj\Debug\thread.Form1.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部稳定版本)\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.3(内部稳定版本)\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\obj\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\obj\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\bin\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\bin\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\obj\Debug\thread.Form1.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4 - 副本\thread\obj\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4 - 副本\thread\obj\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4 - 副本\thread\bin\Debug\thread.exe
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4 - 副本\thread\bin\Debug\thread.pdb
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4 - 副本\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4 - 副本\thread\obj\Debug\thread.Form1.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4 - 副本\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4 - 副本\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\bin\Debug\thread.exe.manifest
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\bin\Debug\thread.application
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\obj\Debug\thread.exe.manifest
+D:\其他00\C2308A\软件\RS485\C2308软件（销售版本）\C2308读写软件V1.4\thread\obj\Debug\thread.application
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\obj\Debug\thread.exe
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\obj\Debug\thread.pdb
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\obj\Debug\thread.Form1.resources
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\obj\Debug\thread.Properties.Resources.resources
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\bin\Debug\thread.exe.manifest
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\bin\Debug\thread.application
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\bin\Debug\thread.exe
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\bin\Debug\thread.pdb
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\obj\Debug\thread.exe.manifest
+C:\Users\WeiZai520\Desktop\C2308读写软件V1.4\thread\obj\Debug\thread.application
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\obj\Debug\thread.exe
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\obj\Debug\thread.pdb
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\bin\Debug\thread.exe.manifest
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\bin\Debug\thread.application
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\bin\Debug\thread.exe
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\bin\Debug\thread.pdb
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\obj\Debug\thread.Form1.resources
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\obj\Debug\thread.exe.manifest
+D:\其他01\TB\ajava\C2308读写软件V1.49\thread\obj\Debug\thread.application
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\obj\Debug\thread.exe
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\obj\Debug\thread.pdb
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\obj\Debug\thread.Form1.resources
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\bin\Debug\thread.exe.manifest
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\bin\Debug\thread.application
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\bin\Debug\thread.exe
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\bin\Debug\thread.pdb
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\obj\Debug\thread.exe.manifest
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0\thread\obj\Debug\thread.application
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\obj\Debug\thread.exe
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\obj\Debug\thread.pdb
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\bin\Debug\thread.exe.manifest
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\bin\Debug\thread.application
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\bin\Debug\thread.exe
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\bin\Debug\thread.pdb
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\obj\Debug\thread.Form1.resources
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\obj\Debug\thread.exe.manifest
+D:\其他00\开发板\高频模块\软件\HF主动读卡获取数据测试V3.0 自动获取\thread\obj\Debug\thread.application
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\obj\Debug\thread.exe
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\obj\Debug\thread.pdb
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\bin\Debug\thread.exe.manifest
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\bin\Debug\thread.application
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\bin\Debug\thread.exe
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\bin\Debug\thread.pdb
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\obj\Debug\thread.Form1.resources
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\obj\Debug\thread.exe.manifest
+D:\其他00\开发板\高频模块\软件\HF主动读卡文本保存卡号V3.0\thread\obj\Debug\thread.application
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\obj\Debug\thread.exe
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\obj\Debug\thread.pdb
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\bin\Debug\thread.exe.manifest
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\bin\Debug\thread.application
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\bin\Debug\thread.exe
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\bin\Debug\thread.pdb
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\obj\Debug\ResolveAssemblyReference.cache
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\obj\Debug\thread.Form1.resources
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\obj\Debug\thread.Properties.Resources.resources
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\obj\Debug\thread.csproj.GenerateResource.Cache
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\obj\Debug\thread.exe.manifest
+D:\其他00\开发板\高频模块\软件\HF接收卡信息显示在光标处 V3.0\thread\obj\Debug\thread.application
+C:\Users\dell\Desktop\RFID读写二次开资料\参考代码\3.C#\HF接收卡信息显示在光标处\thread\obj\Debug\thread.exe
+C:\Users\dell\Desktop\RFID读写二次开资料\参考代码\3.C#\HF接收卡信息显示在光标处\thread\obj\Debug\thread.pdb
+D:\EPS32\昱闵科技\SDK\RFID读写二次开资料V23B(串口)\参考代码\3.C#实例代码\HF接收卡信息显示在光标处\thread\obj\Debug\thread.csproj.AssemblyReference.cache
+D:\EPS32\昱闵科技\SDK\RFID读写二次开资料V23B(串口)\参考代码\3.C#实例代码\HF接收卡信息显示在光标处\thread\obj\Debug\thread.Form1.resources
+D:\EPS32\昱闵科技\SDK\RFID读写二次开资料V23B(串口)\参考代码\3.C#实例代码\HF接收卡信息显示在光标处\thread\obj\Debug\thread.Properties.Resources.resources
+D:\EPS32\昱闵科技\SDK\RFID读写二次开资料V23B(串口)\参考代码\3.C#实例代码\HF接收卡信息显示在光标处\thread\obj\Debug\thread.csproj.GenerateResource.cache
+D:\EPS32\昱闵科技\SDK\RFID读写二次开资料V23B(串口)\参考代码\3.C#实例代码\HF接收卡信息显示在光标处\thread\obj\Debug\thread.csproj.CoreCompileInputs.cache
+D:\EPS32\昱闵科技\SDK\RFID读写二次开资料V23B(串口)\参考代码\3.C#实例代码\HF接收卡信息显示在光标处\thread\obj\Debug\thread.exe
+D:\EPS32\昱闵科技\SDK\RFID读写二次开资料V23B(串口)\参考代码\3.C#实例代码\HF接收卡信息显示在光标处\thread\obj\Debug\thread.pdb
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\obj\Debug\thread.csproj.AssemblyReference.cache
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\obj\Debug\thread.csproj.GenerateResource.cache
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\obj\Debug\thread.csproj.CoreCompileInputs.cache
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\bin\Debug\ReadNFC.exe.config
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\bin\Debug\ReadNFC.exe.manifest
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\bin\Debug\ReadNFC.application
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\bin\Debug\ReadNFC.exe
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\bin\Debug\ReadNFC.pdb
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\obj\Debug\ReadNFC.Form1.resources
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\obj\Debug\ReadNFC.Properties.Resources.resources
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\obj\Debug\ReadNFC.exe.manifest
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\obj\Debug\ReadNFC.application
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\obj\Debug\ReadNFC.exe
+D:\EPS32\APP_ESP32_S3_WROOM_1\OTHER\NFC_Cursor_Focus\obj\Debug\ReadNFC.pdb

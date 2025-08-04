@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|thread||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEDAA37E-E922-41C4-86A5-943552DD81E3}|thread.csproj|d:\\eps32\\app_esp32_s3_wroom_1\\other\\nfc_cursor_focus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CEDAA37E-E922-41C4-86A5-943552DD81E3}|thread.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEDAA37E-E922-41C4-86A5-943552DD81E3}|thread.csproj|d:\\eps32\\app_esp32_s3_wroom_1\\other\\nfc_cursor_focus\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "thread",
+              "DocumentMoniker": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\thread.csproj",
+              "RelativeDocumentMoniker": "thread.csproj",
+              "ToolTip": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\thread.csproj",
+              "RelativeToolTip": "thread.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-08-01T09:06:58.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\EPS32\\APP_ESP32_S3_WROOM_1\\OTHER\\NFC_Cursor_Focus\\Form1.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "Form1.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:06:53.522Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
